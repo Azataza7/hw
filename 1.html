@@ -2,13 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cinematica</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+          href="https://play-lh.googleusercontent.com/v-bjYiclJr0D1nYkbAKAwAFbSgD1Qhf61NGs-0bQ7RTL1k2lk8LrrrHLkqu4BKAEZG8">
 </head>
 <body>
+<header class="header">
+    <a href="#">
+        <img class="logo"
+             src="https://play-lh.googleusercontent.com/v-bjYiclJr0D1nYkbAKAwAFbSgD1Qhf61NGs-0bQ7RTL1k2lk8LrrrHLkqu4BKAEZG8"
+             alt="logo-cinematica">
+    </a>
+    <nav>
+        <ul class="navigation-list">
+            <li class="navigation-item">космопарк imax</li>
+            <li class="navigation-item">дордой плаза imax</li>
+            <li class="navigation-item">аламедин гранд</li>
+            <li class="navigation-item">ала-тоо</li>
+            <li class="navigation-item">бишкекпарк</li>
+        </ul>
+    </nav>
+</header>
+<div id="app"></div>
+<footer class="footer">
+    <div class="footer-info">
+        <ul class="footer-list">
+            <li class="footerList-item">Контакты</li>
+            <li class="footerList-item">Обратная Связь</li>
+            <li class="footerList-item">Рассылка</li>
+            <li class="footerList-item">Уведомление о рекламе</li>
+            <li class="footerList-item">FAQ</li>
+            <li class="footerList-item">Вакансии</li>
+            <li class="footerList-item">Правила посещения кинотеатра</li>
+        </ul>
+        <span>© Cinematica 2023</span>
+    </div>
+</footer>
 
-<script type="text/babel"></script>
+<script type="text/babel">
+  const MoviesCards = ({movieImg, date, name}) => {
+    return (
+      <a className="card">
+        <img className="movieImg" src={movieImg} alt={"movie " + name}/>
+        <span className="title">{name}</span>
+        <span className="releaseDate">Release date:{date}</span>
+      </a>
+    );
+  };
+
+  const movies = (
+    <div className="moviesContainer">
+      <MoviesCards name="What's eating Gilbert Grape" date="20.02.1998"
+                   movieImg="https://m.media-amazon.com/images/I/71KyURgsw8L._AC_SL1500_.jpg"/>
+      <MoviesCards name="Wolf of wall street" date="03.01.2013"
+                   movieImg="https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_.jpg"/>
+      <MoviesCards name="Gentlemen" date="03.12.2019" movieImg="https://flxt.tmsimg.com/assets/p17259997_v_v13_af.jpg"/>
+    </div>
+  );
+
+  const container = document.getElementById('app');
+  ReactDOM.createRoot(container).render(movies);
+</script>
 </body>
 </html>
